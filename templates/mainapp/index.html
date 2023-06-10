@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrapper {% if synonyms %} active {% endif %}">
+    <header>Қазақ тілі синонимдерінің ақпараттық жүйесі</header>
+    <form method="post">
+        {% csrf_token %}
+        <div class="search">
+            <input type="text" name="search" value="{{ text }}" placeholder="Сөзді іздеу" required spellcheck="false">
+            <i class="fas fa-search"></i>
+        </div>
+    </form>
+    <p class="info-text">Кез келген сөзді енгізіп, синонимін алу үшін enter пернесін басыңыз!</p>
+    {% if synonyms %}
+    <div class="content">
+        <ul>
+
+            {% for synonym in synonyms %}
+            <li class="meaning">
+                <div class="details">
+                    <p>{{ synonym }}</p>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+    {% else %}
+    <br>
+    <p class="info-text" style="color:red;">{{ error }}</p>
+    {% endif %}
+
+</div>
+{% endblock content %}

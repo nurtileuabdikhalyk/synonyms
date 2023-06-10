@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrapper active">
+    <header>Қазақ тілі синонимдерінің ақпараттық жүйесі</header>
+
+        <div class="search">
+            <input type="text" name="search" placeholder="Сөзді іздеу" required spellcheck="false">
+            <i class="fas fa-search"></i>
+        </div>
+    <p class="info-text">Кез келген сөзді енгізіп, синонимін алу үшін enter пернесін басыңыз!</p>
+
+
+        <div class="content"> <ul>
+            <li class="meaning">
+                <div class="details">
+                    <p>Meaning</p>
+                </div>
+            </li>
+            <li class="example">
+                <div class="details">
+                    <p>Example</p>
+                </div>
+            </li>
+    </ul>
+        </div>
+</div>
+{% endblock content %}
